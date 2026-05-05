@@ -342,7 +342,7 @@ elif mod == "ekran":
         'font-size:1.05rem;color:#F0F0F5;margin:0;letter-spacing:0.04em;">ATA-GEM</p>'
         '<p style="font-size:0.62rem;color:#4A6AE0;margin:0;'
         'letter-spacing:0.08em;text-transform:uppercase;">'
-        'Atılım Girişimcilik ve Etkinlik Merkezi</p>'
+        'Ata Genç Endüstri Mühendisleri Kulübü</p>'
         '</div>'
         '</div>'
 
