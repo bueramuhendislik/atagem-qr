@@ -277,7 +277,7 @@ elif mod == "ekran":
     </style>
     """, unsafe_allow_html=True)
 
-    base_url = query_params.get("url", "https://your-app.streamlit.app")
+    base_url = query_params.get("url", "https://atagem-etkinlik.streamlit.app")
     LIFESPAN = 15
 
     current_token = manager.create_token(LIFESPAN)
