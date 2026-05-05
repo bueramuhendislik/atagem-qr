@@ -228,7 +228,7 @@ if mod == "kayit":
                         "Yüksek Lisans", "Doktora"
                     ])
                 with col4:
-                    mail = st.text_input("E-posta *", placeholder="ad@universite.edu.tr")
+                    mail = st.text_input("E-posta *", placeholder="")
 
                 st.markdown("<br>", unsafe_allow_html=True)
                 submitted = st.form_submit_button("✓  Kaydı Tamamla", use_container_width=True)
