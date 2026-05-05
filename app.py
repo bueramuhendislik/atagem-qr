@@ -219,7 +219,7 @@ if mod == "kayit":
                 with col2:
                     soyisim = st.text_input("Soyisim *")
 
-                bolum = st.text_input("Bölüm *", placeholder="örn. Bilgisayar Mühendisliği")
+                bolum = st.text_input("Bölüm *", placeholder="örn. Endüstri Mühendisliği")
 
                 col3, col4 = st.columns(2)
                 with col3:
