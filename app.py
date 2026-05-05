@@ -463,7 +463,7 @@ else:
 
     with tab3:
         if "base_link" not in st.session_state:
-            st.session_state["base_link"] = "https://your-app.streamlit.app"
+            st.session_state["base_link"] = "https://atagem-etkinlik.streamlit.app"
         deployed_url = st.text_input("Canlı Site URL:", value=st.session_state["base_link"])
         st.session_state["base_link"] = deployed_url
         ekran_link = deployed_url + "/?mod=ekran&url=" + deployed_url
