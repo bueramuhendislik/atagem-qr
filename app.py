@@ -210,9 +210,7 @@ if mod == "kayit":
                 '</div>',
                 unsafe_allow_html=True
             )
-            if st.button("Yeni Kayıt"):
-                st.session_state["kayit_tamam"] = False
-                st.rerun()
+            
         else:
             with st.form("kayit_formu", clear_on_submit=True):
                 col1, col2 = st.columns(2)
