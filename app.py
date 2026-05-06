@@ -210,7 +210,9 @@ if mod == "kayit":
                 '</div>',
                 unsafe_allow_html=True
             )
-            
+            if st.button("Yeni Kayıt"):
+                st.session_state["kayit_tamam"] = False
+                st.rerun()
         else:
             with st.form("kayit_formu", clear_on_submit=True):
                 col1, col2 = st.columns(2)
@@ -277,7 +279,7 @@ elif mod == "ekran":
     </style>
     """, unsafe_allow_html=True)
 
-    base_url = query_params.get("url", "https://atagem-etkinlik.streamlit.app")
+    base_url = query_params.get("url", "https://your-app.streamlit.app")
     LIFESPAN = 15
 
     current_token = manager.create_token(LIFESPAN)
@@ -340,7 +342,7 @@ elif mod == "ekran":
         'font-size:1.05rem;color:#F0F0F5;margin:0;letter-spacing:0.04em;">ATA-GEM</p>'
         '<p style="font-size:0.62rem;color:#4A6AE0;margin:0;'
         'letter-spacing:0.08em;text-transform:uppercase;">'
-        'Ata Genç Endüstri Mühendisleri Kulübü</p>'
+        'ATA GENÇ ENDÜSTRİ MÜHENDİSLERİ KULÜBÜ</p>'
         '</div>'
         '</div>'
 
@@ -384,6 +386,26 @@ elif mod == "ekran":
 # 3. ADMİN PANELİ
 # ============================================================
 else:
+    if not st.session_state.get("admin_giris", False):
+        st.markdown("""
+        <div style="max-width:340px;margin:5rem auto;text-align:center;">
+            <div style="font-size:2.5rem;margin-bottom:1rem;">🔒</div>
+            <h2 style="font-family:'Space Grotesk',sans-serif;color:#F0F0F5;margin:0 0 0.3rem;">
+                Admin Girişi</h2>
+            <p style="color:#4A5A80;font-size:0.85rem;margin:0 0 1.5rem;">
+                Bu alana erişmek için şifre gereklidir.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        sifre = st.text_input("Şifre", type="password", label_visibility="collapsed",
+                               placeholder="Şifrenizi girin")
+        if st.button("Giriş Yap", use_container_width=True):
+            if sifre == "buera2025":
+                st.session_state["admin_giris"] = True
+                st.rerun()
+            else:
+                st.error("Yanlış şifre.")
+        st.stop()
+
     st.markdown(
         '<div style="padding:1.5rem 0 1rem;display:flex;align-items:center;gap:1rem;">'
         + atagem_logo_html(56, 12) +
@@ -463,7 +485,7 @@ else:
 
     with tab3:
         if "base_link" not in st.session_state:
-            st.session_state["base_link"] = "https://atagem-etkinlik.streamlit.app"
+            st.session_state["base_link"] = "https://your-app.streamlit.app"
         deployed_url = st.text_input("Canlı Site URL:", value=st.session_state["base_link"])
         st.session_state["base_link"] = deployed_url
         ekran_link = deployed_url + "/?mod=ekran&url=" + deployed_url
